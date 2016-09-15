@@ -48,3 +48,9 @@ var traverse = function(id) {
 { "start" : "1", "liorder" : { "1" : "6", "2" : "", "6" : "4", "4" : "2"} }
 
 /sortLi?start=1
+
+
+BlockingJS
+https://developers.google.com/speed/docs/insights/BlockingJS
+http://stackoverflow.com/questions/436411/where-is-the-best-place-to-put-script-tags-in-html-markup
+https://developer.yahoo.com/performance/rules.html#js_bottom=

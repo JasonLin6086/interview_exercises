@@ -1,0 +1,46 @@
+<html>
+<body>
+<ul>
+   <li id="4"><a href="#2">4</a> </li>
+   <li id="1"><a href="#6">1</a> </li>
+   <li id="2"><a href="">2</a> </li>
+   <li id="6"><a href="#4">6</a></li>
+</ul>
+
+<script type="text/javascript">
+var li_ary = document.getElementsByTagName("li");
+var myMap = new Map();
+var result = "";
+var helper = function(mymap, id, reverse=false) {
+    if (mymap.get(id) != "") {
+        helper(mymap, myMap.get(id), reverse);
+    }
+    if (reverse) {
+        result += id + (mymap.size!=1 ? "->" : "");
+    } else {
+        result = (mymap.size!=1 ? "->" : "") + id + result;
+    }
+    mymap.delete(id);
+}
+
+var sortLi = function(id) {
+		for (let i=0; i<li_ary.length; i++) {
+    		let key = li_ary[i].id;
+        let value = li_ary[i].firstChild.hash.replace(/#/,"");
+        myMap.set(key, value);
+    }
+    let cloneMap = new Map(myMap);
+    helper(cloneMap, id);
+    console.log(result);
+    cloneMap = new Map(myMap);
+    result = "";
+    helper(cloneMap, id, true);
+    console.log(result);
+}
+
+sortLi("1");
+
+</script>
+
+</body>
+</html>
