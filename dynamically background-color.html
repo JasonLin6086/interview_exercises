@@ -2,7 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
   <style>
+  .center {
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+  }
+  .topcenter {
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
   #result {
     width:100px;
     height: 100px;
@@ -10,22 +22,34 @@
     border: 1px;
     border-color: black;
     border-style: solid;
+    margin-top: 50px;
   }
   </style>
 </head>
 <body>
-  <input type="range" min="0" max="255" id="red" class="red" onchange="changeBackgroundColor()" />
-  <input type="range" min="0" max="255" id="green" class="green" onchange="changeBackgroundColor()" />
-  <input type="range" min="0" max="255" id="blue" class="blue" onchange="changeBackgroundColor()" />
-  <div id="result"></div>
+  <div class="center">
+    RED: <input type="range" min="0" max="255" id="red" class="red" />
+    GREEN: <input type="range" min="0" max="255" id="green" class="green" />
+    BLUE: <input type="range" min="0" max="255" id="blue" class="blue" />
+  </div>
+  <div id="result" class="center"></div>
 </body>
 <script type="text/javascript">
-var changeBackgroundColor = function() {
-  let element = document.getElementById("result");
-  let red = document.getElementById("red").value;
-  let green = document.getElementById("green").value;
-  let blue = document.getElementById("blue").value;
-  element.style.backgroundColor = "rgb("+red+","+green+","+blue+")";
-}
+$(function() {
+  var red = $("#red");
+  var green = $("#green");
+  var blue = $("#blue");
+  var element = $("#result");
+  var changeBackgroundColor = function() {
+    let redV = red.val();
+    let greenV = green.val();
+    let blueV = blue.val();
+    element.css("background-color", "rgb("+redV+","+greenV+","+blueV+")");
+  }
+  red.on('click', changeBackgroundColor);
+  green.on('click', changeBackgroundColor);
+  blue.on('click', changeBackgroundColor);
+
+});
 </script>
 </html>

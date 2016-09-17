@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="thumbnails.css">
+</head>
+<body>
+  <article>
+  <h1>Using Negative Margins</h1>
+  <div class="gallery">
+    <img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x120" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x140" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x130" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x100" /><!--
+    --><img src="http://placehold.it/200x90" />
+  </div>
+  <p>Note how the left edge of the text lines up with the left edge of the first image in each row.</p>
+</article>
+<div id = "parent">
+  <div id = "placeholder">
+    <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" />
+    <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" />
+    <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" />
+    <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" />
+    <img src="http://sourcefed.com/wp-content/uploads/2012/10/twitter-for-ios-app-thumbnail.jpg" />
+  </div>
+</div>
+</body>
+<script>
+$(function() {
+  $("img").css({
+      "border-style": "solid",
+      "border-width": "1px",
+      "border-color": "black"
+  });
+  /*$("#parent img:first-child").css("margin-left", "0px")*/
+});
+</script>
+</html>

@@ -1,0 +1,38 @@
+#parent {
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+}
+#parent #placeholder {
+  margin: -10px;
+  overflow: hidden;
+}
+#parent img {
+  margin: 10px;
+}
+.gallery {
+  margin: -5px;
+  overflow: hidden;
+}
+
+.gallery img {
+  margin: 5px;
+}
+
+/* pretty it up! */
+
+.gallery {
+  background: rgba(255, 165, 0, 0.35);
+}
+
+article {
+  background: #cbf;
+}
+
+.gallery img {
+  vertical-align: text-top;
+}
