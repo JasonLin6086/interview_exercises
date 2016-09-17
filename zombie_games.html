@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<head lang="en">
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+  <button type="button" class="direction">UP</button>
+  <button type="button" class="direction">DOWN</button>
+  <button type="button" class="direction">LEFT</button>
+  <button type="button" class="direction">RIGHT</button>
+  <table border="1" id="map">
+  </table>
+
+<script type="text/javascript">
+$(function() {
+    var map = {
+                    "0,0": "start",
+                    "0,1": "",
+                    "0,2": "",
+                    "0,3": "",
+                    "0,4": "",
+                    "1,0": "x",
+                    "1,1": "",
+                    "1,2": "",
+                    "1,3": "x",
+                    "1,4": "",
+                    "2,0": "",
+                    "2,1": "",
+                    "2,2": "",
+                    "2,3": "shotgun",
+                    "2,4": "",
+                    "3,0": "",
+                    "3,1": "",
+                    "3,2": "",
+                    "3,3": "x",
+                    "3,4": "",
+                    "4,0": "",
+                    "4,1": "",
+                    "4,2": "",
+                    "4,3": "zombie",
+                    "4,4": "end"
+    }
+
+    var current_pos = "", current_x = 0, current_y = 0;
+    var gun_count = 0, met_zombie = false;
+    var keys = Object.keys(map);
+    var col = row = Math.sqrt(keys.length);
+    var table_html = "";
+    for (var i = 0; i < row; i++) {
+        table_html = table_html + '<tr>';
+        for (var j=0; j < col; j++) {
+            let current_pos = i + ',' + j;
+            if (map[current_pos] == "start") {
+                table_bg_color = 'white';
+                current_x = i; current_y = j;
+            }else{
+                table_bg_color = 'black';
+            }
+            table_html = table_html + '<td id="td_' + i + '_' + j + '" style="background-color:' + table_bg_color + '">*</td>';
+        }
+        table_html = table_html + '</tr>';
+    }
+    var table_node = $('#map');
+    table_node.html(table_html);
+    $('.direction').on('click', ChangePosition);
+    function ChangePosition(obj) {
+        var current_pos_id = "" + current_x + "_" + current_y;
+        var current_pos_key = "" + current_x + "," + current_y;
+        function get_gun() {
+            if (map[current_pos_key] == "shotgun") {alert('get gun!!'); gun_count ++;}
+        }
+        function meet_zombie() {
+            if (map[current_pos_key] == "zombie")  {alert('meet zombie'); gun_count --;}
+        }
+        function win() {
+            if (map[current_pos_key] == "end") {alert("win!"); return true;}
+        }
+        let direction = obj.target.innerHTML;
+        if (direction=='UP') {
+            if (current_x-1<0) {alert('outer bonder');}
+            else {
+              current_x --;
+            }
+        }
+        if(direction=='DOWN') {
+            if (current_x+1>=row) {alert('outer bonder');}
+            else {
+              current_x ++;
+            }
+        }
+        if(direction=='LEFT') {
+            if (current_y-1<0) {alert('outer bonder');}
+            else {
+              current_y --;
+            }
+        }
+        if(direction=='RIGHT') {
+            if (current_y+1>=col) {alert('outer bonder');}
+            else {
+              current_y ++;
+            }
+        }
+        $('#td_'+current_pos_id).css('background-color','black');
+        current_pos_id = "" + current_x + "_" + current_y;
+        current_pos_key = "" + current_x + "," + current_y;
+        get_gun();
+        meet_zombie();
+        if (gun_count < 0) {
+           alert('Looser!!');
+           return false;
+        }
+        if (win()) return true;
+        $('#td_'+current_pos_id).css('background-color','white');
+    }
+});
+</script>
+</body>
+</html>
