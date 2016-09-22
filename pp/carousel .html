@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <style>
+    .container {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #444;
+        margin: 50px 100px;
+        list-style: none;
+        overflow: hidden; 
+     }
+    ul {
+        padding: 0;
+        margin: 0;
+        /* width: 1000px; */
+        display: inline-flex;
+    }
+    li {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        float: left;
+        height: 100px;
+        width: 100px;
+        opacity: 0.7;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    li:nth-child(odd) {background-color: #777;}
+    li:nth-child(even) {background-color: #ccc;}
+    span {margin: 0 auto;display: block;width: 10px;height: 10px;top: 40%;position: relative;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>5</span></li>
+            <li><span>5</span></li>
+            <li><span>5</span></li>
+
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+var tester = function(val) {
+    return val ? "OK" : "NO";
+};
+
+tester(); ==> "NO"
+tester(1); ==> "OK"
+tester(2.3); ==> "NO" -> "OK"
+tester(0); ==> "NO"
+tester(-1); ==> "NO" -> "OK"
+tester('0'); ==> "NO" -> "OK"
+tester(''); ==> "NO"
+tester(false); ==> "NO" 
+tester('false'); ==> "OK"
+tester([]); ==> "OK"
+tester({}); ==> "OK"
+tester(NaN); ==> "OK" -> "NO"
+tester(null); ==> "NO"
+tester('null'); ==> "OK"
+tester(undefined); ==> "OK" -> "NO"

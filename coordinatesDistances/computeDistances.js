@@ -23,7 +23,7 @@ var outputResult = function(map) {
 }
 
 var calculateDistance = function(item) {
-    if (item.value!=="undefined") {
+    //if (item.value!=="undefined") {
         let point = item.value.split(',');
         let distance = Math.pow(point[0]-x,2) + Math.pow(point[1]-y,2);
         typeof myMap[distance];
@@ -31,7 +31,7 @@ var calculateDistance = function(item) {
             myMap[distance] = [];
         }
         myMap[distance].push(item.id);
-    }
+    //}
 }
 
 var calculateEachPoint = function(x, y) {
@@ -46,7 +46,7 @@ function readFile (jsonfile, callback) {
           console.log(err);
           return;
       }
-      bufferString = data.toString();
+      bufferString = data;
       callback.apply(this, [x,y]);
     });
 }
